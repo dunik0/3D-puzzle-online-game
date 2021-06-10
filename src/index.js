@@ -1,4 +1,5 @@
 import Main from './components/Main';
+import './style.css';
 
 function init() {
     //div
