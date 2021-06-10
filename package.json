@@ -1,0 +1,36 @@
+{
+  "name": "ending-project",
+  "version": "1.0.0",
+  "description": "projekt koncowy",
+  "main": "index.js",
+  "dependencies": {
+    "css-loader": "^5.2.6",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "three": "^0.126.0",
+    "url-loader": "^4.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --progress --watch",
+    "server": "webpack serve --open",
+    "go": "webpack && webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrrrrrw420/Ending-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wrrrrrw420/Ending-Project/issues"
+  },
+  "homepage": "https://github.com/wrrrrrw420/Ending-Project#readme"
+}
