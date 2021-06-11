@@ -13,11 +13,7 @@
   },
   "devDependencies": {
     "file-loader": "^6.2.0",
-<<<<<<< HEAD
-    "three": "^0.126.0",
-=======
     "three": "^0.126.1",
->>>>>>> 4dba89dadba3fac1a581e440add553da340abbd5
     "url-loader": "^4.1.1"
   },
   "scripts": {
@@ -37,8 +33,4 @@
     "url": "https://github.com/wrrrrrw420/Ending-Project/issues"
   },
   "homepage": "https://github.com/wrrrrrw420/Ending-Project#readme"
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4dba89dadba3fac1a581e440add553da340abbd5

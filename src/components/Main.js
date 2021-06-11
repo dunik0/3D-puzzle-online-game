@@ -1,29 +1,14 @@
-<<<<<<< HEAD
-import { Scene } from 'three';
-import Renderer from './Renderer';
-import Camera from './Camera';
-=======
 import { Scene, GridHelper, CylinderGeometry, MeshBasicMaterial, Mesh } from 'three';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Renderer from './Renderer';
 import Camera from './Camera';
 import Cylinder from './Cylinder';
->>>>>>> 4dba89dadba3fac1a581e440add553da340abbd5
 
 export default class Main {
     constructor(container) {
         // właściwości klasy
         this.container = container;
         this.scene = new Scene();
-<<<<<<< HEAD
-        this.renderer = new Renderer(this.scene, container);
-        this.camera = new Camera(this.renderer.threeRenderer);
-
-
-        this.render();
-    }
-
-=======
         this.renderer = new Renderer(this.scene, this.container);
         this.camera = new Camera(this.renderer.threeRenderer);
 
@@ -43,7 +28,6 @@ export default class Main {
 
         this.render();
     }
->>>>>>> 4dba89dadba3fac1a581e440add553da340abbd5
     render() {
 
         console.log("render leci")
