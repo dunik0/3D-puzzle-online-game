@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 index.html
 node_modules
+=======
+package-lock.json
+node_modules
+dist
+>>>>>>> 4dba89dadba3fac1a581e440add553da340abbd5
