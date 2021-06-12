@@ -70,6 +70,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/plik.png":
+/*!**********************!*\
+  !*** ./src/plik.png ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"images/423d0b609545e233f9810cf7bcd6a938-plik.png\");\n\n//# sourceURL=webpack://ending-project/./src/plik.png?");
+
+/***/ }),
+
 /***/ "./src/components/Camera.js":
 /*!**********************************!*\
   !*** ./src/components/Camera.js ***!
@@ -86,7 +96,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Cylinder)\n/* harmony export */ });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.module.js\");\n\nclass Cylinder {\n    constructor(scene, position) {\n        this.geometry = new three__WEBPACK_IMPORTED_MODULE_0__.CylinderGeometry(50, 50, 50, 8);\n        this.material = new three__WEBPACK_IMPORTED_MODULE_0__.MeshBasicMaterial({ color: 0x000000 });\n        this.mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(this.geometry, this.material);\n        this.mesh.position.x = position.x\n        this.mesh.position.y = position.y\n        this.mesh.position.z = position.z\n        scene.add(this.mesh);\n    }\n}\n\n//# sourceURL=webpack://ending-project/./src/components/Cylinder.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Cylinder)\n/* harmony export */ });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.module.js\");\n\nclass Cylinder {\n    constructor(scene, position) {\n        this.geometry = new three__WEBPACK_IMPORTED_MODULE_0__.CylinderGeometry(50, 50, 50, 3);\n        this.material = new three__WEBPACK_IMPORTED_MODULE_0__.MeshBasicMaterial({ color: 0x000000 });\n        this.mesh = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(this.geometry, this.material);\n        this.mesh.position.x = position.x\n        this.mesh.position.y = position.y\n        this.mesh.position.z = position.z\n        scene.add(this.mesh);\n    }\n}\n\n//# sourceURL=webpack://ending-project/./src/components/Cylinder.js?");
+
+/***/ }),
+
+/***/ "./src/components/Hex.js":
+/*!*******************************!*\
+  !*** ./src/components/Hex.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Hex3D)\n/* harmony export */ });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.module.js\");\n/* harmony import */ var _plik_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../plik.png */ \"./src/plik.png\");\n\r\n\r\nclass Hex3D extends three__WEBPACK_IMPORTED_MODULE_1__.Object3D {\r\n\r\n    constructor(radius, missingElement) {\r\n\r\n        super()\r\n        this.radius = radius;\r\n        this.missingElement = missingElement;\r\n        // this.missElementY= missElementY;\r\n        this.colorTable = [0xff0000, 0x00ff00, 0x0000ff, 0xffa500, 0x40e0d0, 0xf6546a]\r\n        const geometry = new three__WEBPACK_IMPORTED_MODULE_1__.CylinderGeometry(50, 50, 50, 3);\r\n        // prostopadłościan - jedna ściana hex-a\r\n\r\n        for (let i = 0; i < 6; i++) {\r\n            const material = new three__WEBPACK_IMPORTED_MODULE_1__.MeshPhongMaterial({ color: this.colorTable[i], flatShading: true });\r\n            const wall = new three__WEBPACK_IMPORTED_MODULE_1__.Mesh(geometry, material);\r\n            if (i != this.missingElement) {\r\n                let side = wall.clone()                         // klon ściany\r\n                side.position.x = Math.sin(Math.PI / 3 * i) * (this.radius - (this.radius / 8))        // punkt na okręgu, do obliczenia\r\n                side.position.z = Math.cos(Math.PI / 3 * i) * (this.radius - (this.radius / 8))       // punkt na okręgu, do obliczenia      \r\n                // punkt na okręgu, do obliczenia      \r\n\r\n                side.lookAt(this.position)    // nakierowanie ściany na środek kontenera 3D  \r\n                this.add(side)           // dodanie ściany do kontenera\r\n\r\n            }\r\n\r\n        }\r\n\r\n    }\r\n}\r\n\r\n// export default class Cylinder {\r\n//     constructor(scene, position) {\r\n//         this.geometry = new CylinderGeometry(50, 50, 50, 3);\r\n//         this.material = new MeshBasicMaterial({ color: 0x000000 });\r\n//         this.mesh = new Mesh(this.geometry, this.material);\r\n//         this.mesh.position.x = position.x\r\n//         this.mesh.position.y = position.y\r\n//         this.mesh.position.z = position.z\r\n//         scene.add(this.mesh);\r\n//     }\r\n// }\n\n//# sourceURL=webpack://ending-project/./src/components/Hex.js?");
 
 /***/ }),
 
@@ -96,7 +116,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Main)\n/* harmony export */ });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.module.js\");\n/* harmony import */ var three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! three/examples/jsm/controls/OrbitControls */ \"./node_modules/three/examples/jsm/controls/OrbitControls.js\");\n/* harmony import */ var _Renderer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Renderer */ \"./src/components/Renderer.js\");\n/* harmony import */ var _Camera__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Camera */ \"./src/components/Camera.js\");\n/* harmony import */ var _Cylinder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Cylinder */ \"./src/components/Cylinder.js\");\n\n\n\n\n\n\nclass Main {\n    constructor(container) {\n        // właściwości klasy\n        this.container = container;\n        this.scene = new three__WEBPACK_IMPORTED_MODULE_3__.Scene();\n        this.renderer = new _Renderer__WEBPACK_IMPORTED_MODULE_0__.default(this.scene, this.container);\n        this.camera = new _Camera__WEBPACK_IMPORTED_MODULE_1__.default(this.renderer.threeRenderer);\n\n        this.controls = new three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_4__.OrbitControls(this.camera.threeCamera, this.renderer.threeRenderer.domElement);\n\n        const gridHelper = new three__WEBPACK_IMPORTED_MODULE_3__.GridHelper(1000, 10);\n        this.scene.add(gridHelper);\n\n        // const geometry = new CylinderGeometry(50, 50, 50, 8);\n        // const material = new MeshBasicMaterial({ color: 0x000000 });\n        // const cylinder = new Mesh(geometry, material);\n        // this.scene.add(cylinder);\n\n        this.cylinder1 = new _Cylinder__WEBPACK_IMPORTED_MODULE_2__.default(this.scene, { x: 0, y: 25, z: 0 })\n        this.cylinder2 = new _Cylinder__WEBPACK_IMPORTED_MODULE_2__.default(this.scene, { x: 0, y: 75, z: 0 })\n        this.cylinder3 = new _Cylinder__WEBPACK_IMPORTED_MODULE_2__.default(this.scene, { x: 0, y: 125, z: 0 })\n\n        this.render();\n    }\n    render() {\n\n        console.log(\"render leci\")\n\n        this.renderer.render(this.scene, this.camera.threeCamera);\n\n\n        requestAnimationFrame(this.render.bind(this));\n    }\n}\n\n\n//# sourceURL=webpack://ending-project/./src/components/Main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Main)\n/* harmony export */ });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.module.js\");\n/* harmony import */ var three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! three/examples/jsm/controls/OrbitControls */ \"./node_modules/three/examples/jsm/controls/OrbitControls.js\");\n/* harmony import */ var _Renderer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Renderer */ \"./src/components/Renderer.js\");\n/* harmony import */ var _Camera__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Camera */ \"./src/components/Camera.js\");\n/* harmony import */ var _Cylinder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Cylinder */ \"./src/components/Cylinder.js\");\n/* harmony import */ var _Hex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Hex */ \"./src/components/Hex.js\");\n\n\n\n\n\n\n\nclass Main {\n    constructor(container) {\n        // właściwości klasy\n        this.container = container;\n        this.scene = new three__WEBPACK_IMPORTED_MODULE_4__.Scene();\n        this.renderer = new _Renderer__WEBPACK_IMPORTED_MODULE_0__.default(this.scene, this.container);\n        this.camera = new _Camera__WEBPACK_IMPORTED_MODULE_1__.default(this.renderer.threeRenderer);\n\n        this.controls = new three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_5__.OrbitControls(this.camera.threeCamera, this.renderer.threeRenderer.domElement);\n\n        const gridHelper = new three__WEBPACK_IMPORTED_MODULE_4__.GridHelper(1000, 10);\n        this.scene.add(gridHelper);\n\n        const light = new three__WEBPACK_IMPORTED_MODULE_4__.AmbientLight(0xffffff, 1)\n        light.position.set(1000, 1000, 1000)\n        this.scene.add(light)\n        // const geometry = new CylinderGeometry(50, 50, 50, 8);\n        // const material = new MeshBasicMaterial({ color: 0x000000 });\n        // const cylinder = new Mesh(geometry, material);\n        // this.scene.add(cylinder);\n\n        // w tej pentli dodaje 3 hexagony do sceny \n        for (let i = 0; i < 3; i++) {\n            let missElement = 2;\n            if (i == 2) {\n                let hexa = new _Hex__WEBPACK_IMPORTED_MODULE_3__.default(60, missElement);//jeśli drugi parametr jest true to znaczy że będzie brakowało jenego kawałka tortu \n                hexa.position.y = i * 55;  // tu ustawiam pozycję pojedynczego hexagonu\n                this.scene.add(hexa)\n            } else {\n                let hexa = new _Hex__WEBPACK_IMPORTED_MODULE_3__.default(60);\n                hexa.position.y = i * 55;\n                this.scene.add(hexa)\n            }\n\n        }\n        // this.hexagon = new Hex3D(60)\n        // this.hexagon.position.y = 25\n        // this.scene.add(this.hexagon)\n        // this.cylinder1 = new Cylinder(this.scene, { x: 0, y: 25, z: 0 })\n        // this.cylinder2 = new Cylinder(this.scene, { x: 0, y: 75, z: 0 })\n        // this.cylinder3 = new Cylinder(this.scene, { x: 0, y: 125, z: 0 })\n\n        this.render();\n    }\n    render() {\n\n        // console.log(\"render leci\")\n\n        this.renderer.render(this.scene, this.camera.threeCamera);\n\n\n        requestAnimationFrame(this.render.bind(this));\n    }\n}\n\n\n//# sourceURL=webpack://ending-project/./src/components/Main.js?");
 
 /***/ }),
 
@@ -171,6 +191,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -185,6 +217,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
