@@ -32,7 +32,9 @@ app.post('/createLobby', (req, res) => {
         name: req.body.name,
         player1: req.body.player1,
         player2: null,
-        started: false
+        started: false,
+        player1Time: null,
+        player2Time: null
     };
 
     db.insert(lobby, (err, newDoc) => {   // Callback is optional
@@ -139,6 +141,58 @@ app.post('/start', async (req, res) => {
 
 app.get('/game', (req, res) => {
     res.sendFile(path.join(__dirname, 'static', 'game', 'index.html'))
+})
+
+app.post('/end', (req, res) => {
+    db.find({ _id: req.body.lobby }, (err, docs) => {
+        console.log(docs)
+        switch (req.body.nick) {
+            case docs[0].player1:
+                db.update(
+                    { _id: req.body.lobby },
+                    { $set: { player1Time: req.body.time } },
+                    {},
+                    function (err, numReplaced) {
+                        console.log("replaced---->" + numReplaced);
+                    }
+                );
+                break;
+            case docs[0].player2:
+                db.update(
+                    { _id: req.body.lobby },
+                    { $set: { player2Time: req.body.time } },
+                    {},
+                    function (err, numReplaced) {
+                        console.log("replaced---->" + numReplaced);
+                    }
+                );
+                break;
+        }
+        res.send('saved')
+    });
+})
+
+app.get('/scoreboard', (req, res) => {
+    // db.find({ _id: req.query.id }, (err, docs) => {
+    //     const players = []
+    //     if (docs[0].player1Time && docs[0].player2Time) {
+    //         if (docs[0].player1Time < docs[0].player2Time) {
+    //             players.push({ name: docs[0].player1, time: docs[0].player1Time })
+    //             players.push({ name: docs[0].player2, time: docs[0].player2Time })
+    //         } else {
+    //             players.push({ name: docs[0].player2, time: docs[0].player2Time })
+    //             players.push({ name: docs[0].player1, time: docs[0].player1Time })
+    //         }
+
+    //     } else if (docs[0].player1Time) {
+    //         players.push({ name: docs[0].player1, time: docs[0].player1Time })
+    //     } else if (docs[0].player2Time) {
+    //         players.push({ name: docs[0].player2, time: docs[0].player2Time })
+    //     }
+    //     console.log(docs)
+
+    res.render('scoreboard')
+    // });
 })
 // app.get('/create', (req, res) => {
 //     res.sendFile(path.join(__dirname, 'static', 'creator.html'))

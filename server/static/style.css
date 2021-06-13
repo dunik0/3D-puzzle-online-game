@@ -25,3 +25,16 @@ main>div>img{
 .index{
     margin: 50px;
 }
+
+#scoreboard{
+    display: flex;
+    flex-direction: column;
+}
+
+#no1{
+    display: flex;
+}
+
+#no2{
+    display: flex;
+}
