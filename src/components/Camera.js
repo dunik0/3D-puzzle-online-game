@@ -6,7 +6,7 @@ export default class Camera {
         const height = renderer.domElement.height;
 
         this.threeCamera = new PerspectiveCamera(75, width / height, 0.1, 10000);
-        this.threeCamera.position.set(200, 200, 200);
+        this.threeCamera.position.set(300, 100, 100);
         this.threeCamera.lookAt(new Vector3(0, 0, 0))
 
 
