@@ -81,6 +81,26 @@ export default class Main {
             }
         })
 
+        this.startTime = new Date().getTime();
+        console.log(this.startTime)
+        document.querySelector('#end').addEventListener('click', async () => {
+            const endTime = new Date().getTime();
+            const time = endTime - this.startTime;
+            const lobbyID = this.getCookie('lobbyid')
+            await fetch('/end', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    lobby: lobbyID,
+                    nick: this.getCookie('username'),
+                    time: time
+                })
+            })
+            location.href = '/scoreboard?id=' + lobbyID
+        })
+
         this.render();
     }
     render() {
@@ -135,5 +155,20 @@ export default class Main {
 
 
         requestAnimationFrame(this.render.bind(this));
+    }
+    getCookie(cookieName) {
+        const name = cookieName + '='
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const cookieArray = decodedCookie.split(';');
+        for (let i = 0; i < cookieArray.length; i++) {
+            let c = cookieArray[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return null;
     }
 }
