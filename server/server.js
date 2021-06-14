@@ -4,7 +4,7 @@ const Datastore = require('nedb');
 const path = require('path');
 const app = express();
 const db = new Datastore({ filename: 'db/lobbies.nedb', autoload: true });
-const port = 3000;
+const port = process.env.PORT || 3000;
 var hbs = exphbs.create({ /* config */ });
 // const modulePath = require('app-module-path')
 // console.log(path.join(__dirname, '../'))
