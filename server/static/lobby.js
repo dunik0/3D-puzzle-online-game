@@ -39,9 +39,9 @@ function makeDOM(lobby) {
             }
 
             if (lobby.player2) {
-                document.querySelector('h1').innerHTML = 'Start the game!'
+                document.querySelector('h1').innerHTML = 'start the game!'
             } else {
-                document.querySelector('h1').innerHTML = 'Waiting for oponent...'
+                document.querySelector('h1').innerHTML = 'waiting for oponent...'
             }
             break;
         case lobby.player2:
@@ -53,7 +53,7 @@ function makeDOM(lobby) {
                 document.querySelector('span').append(leaveBtn)
             }
 
-            document.querySelector('h1').innerHTML = 'Wait for start'
+            document.querySelector('h1').innerHTML = 'wait for start'
             break;
     }
 

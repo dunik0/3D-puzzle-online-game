@@ -6,14 +6,14 @@ async function getGameData() {
     response = await response.json()
     console.log(response)
     if (response == 'lobby does not exist') {
-        document.querySelector('h1').innerHTML = 'Lobby does not exist'
+        document.querySelector('h1').innerHTML = 'lobby does not exist'
     } else if (!document.querySelector('#no2')) {
         let players
         if (response.player1Time && response.player2Time) {
             if (response.player1Time < response.player2Time) {
-                players = { winner: response.player1, loser: response.player1, winnerTime: response.player1Time, loserTime: response.player2Time }
+                players = { winner: response.player1, loser: response.player2, winnerTime: response.player1Time, loserTime: response.player2Time }
             } else {
-                players = { winner: response.player1, loser: response.player1, winnerTime: response.player1Time, loserTime: response.player2Time }
+                players = { winner: response.player2, loser: response.player1, winnerTime: response.player2Time, loserTime: response.player1Time }
             }
 
         } else if (response.player1Time) {
@@ -22,9 +22,9 @@ async function getGameData() {
             players = { winner: response.player2, winnerTime: response.player2Time }
         }
 
-        document.querySelector('#scoreboard').innerHTML = `<tr id="no1"><td>#1</td><td>${players.winner}</td><td>${msToTime(players.winnerTime)}</td></tr>`
+        document.querySelector('#scoreboard').innerHTML = `<tr id="no1"><td>#1 - </td><td>${players.winner}</td><td> - ${msToTime(players.winnerTime)}</td></tr>`
         if (players.loser) {
-            document.querySelector('#scoreboard').innerHTML += `<tr id="no2"><td>#2</td><td>${players.loser}</td><td>${msToTime(players.loserTime)}</td></tr>`
+            document.querySelector('#scoreboard').innerHTML += `<tr id="no2"><td>#2 - </td><td>${players.loser}</td><td> - ${msToTime(players.loserTime)}</td></tr>`
         }
 
 
