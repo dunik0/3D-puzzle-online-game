@@ -4,11 +4,11 @@ export default class Game {
     }
     checkIfDone(elements) {
         let countDoneColumns = 0;
-        elements[0].allElements.forEach((el, index) => {
+        elements[0].forEach((el, index) => {
             let countElements = 0
             for (let x in elements) {
-                if (elements[x].allElements[index].backgroundColor) {
-                    if (el.backgroundColor == elements[x].allElements[index].backgroundColor) {
+                if (elements[x][index].backgroundColor) {
+                    if (el.backgroundColor == elements[x][index].backgroundColor) {
                         countElements++
                     }
                 } else {

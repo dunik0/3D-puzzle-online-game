@@ -113,7 +113,7 @@ export default class Main {
 
         this.game = new Game()
 
-        document.querySelector('#end').addEventListener('click', () => { this.game.checkIfDone(this.cube.cube) })
+        document.querySelector('#end').addEventListener('click', () => { this.game.checkIfDone(this.cubeTable) })
 
         this.render();
     }
