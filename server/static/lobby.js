@@ -6,7 +6,7 @@ async function getLobbyData() {
     response = await response.json()
 
     if (response == 'lobby does not exist') {
-        document.querySelector('h1').innerHTML = 'Lobby was deleted'
+        document.querySelector('h1').innerHTML = 'lobby was deleted'
         document.querySelector('main').innerHTML = '<button onclick="leaveLobby()">leave lobby</button>'
     } else {
         if (response.started) {
