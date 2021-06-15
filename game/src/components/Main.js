@@ -35,6 +35,8 @@ export default class Main {
             this.ray.mouseVector.x = (event.clientX / window.innerWidth) * 2 - 1;
             this.ray.mouseVector.y = -(event.clientY / window.innerHeight) * 2 + 1;
             this.ray.move();
+            console.log(this.cube.cube[0].colorTable)
+
         })
 
         this.game = new Game()
