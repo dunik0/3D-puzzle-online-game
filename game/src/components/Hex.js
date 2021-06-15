@@ -17,9 +17,8 @@ export default class Hex3D extends Object3D {
         for (let i = 0; i < 6; i++) {
 
             const material = new MeshPhongMaterial({ color: this.colorTable[i], flatShading: true, map: this.texture2, shininess: 100 })
-            // materials.push(new MeshPhongMaterial({ color: this.colorTable[i], flatShading: true, map: this.texture2, shininess: 100 }))
-
             const wall = new Mesh(geometry, material);
+
             if (i != this.missingElement) {
                 let side = wall.clone()                         // klon ściany
                 side.position.x = Math.sin(Math.PI / 3 * i) * (this.radius - (this.radius / 8))        // punkt na okręgu, do obliczenia

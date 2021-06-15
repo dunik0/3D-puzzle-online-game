@@ -15,8 +15,8 @@ export default class Main {
 
         this.controls = new OrbitControls(this.camera.threeCamera, this.renderer.threeRenderer.domElement);
 
-        const gridHelper = new GridHelper(1000, 10);
-        this.scene.add(gridHelper);
+        // const gridHelper = new GridHelper(1000, 10);
+        // this.scene.add(gridHelper);
 
         const light = new AmbientLight(0xffffff, 1)
         light.position.set(100, 100, 100)
@@ -35,13 +35,14 @@ export default class Main {
             this.ray.mouseVector.x = (event.clientX / window.innerWidth) * 2 - 1;
             this.ray.mouseVector.y = -(event.clientY / window.innerHeight) * 2 + 1;
             this.ray.move();
-            console.log(this.cube.cube[0].colorTable)
+            this.game.checkIfDone(this.cubeTable)
+
 
         })
 
         this.game = new Game()
 
-        document.querySelector('#end').addEventListener('click', () => { this.game.checkIfDone(this.cubeTable) })
+        // document.querySelector('#end').addEventListener('click', () => { this.game.checkIfDone(this.cubeTable) })
 
         this.render();
     }
@@ -50,9 +51,7 @@ export default class Main {
 
 
         this.cubeTable.forEach((oneHexagon) => {
-            // console.log(oneHexagon)
             oneHexagon.forEach((element) => {
-                // console.log(element)
                 if (element != 0) {
                     if (oneHexagon == this.presentHexFloor) {
                         element.scale.set(0.85, 0.85, 0.85)
@@ -66,7 +65,7 @@ export default class Main {
         })
 
 
-        // console.log("render leci")
+
         window.onkeyup = (e) => {
             let angleToRotate = Math.PI / 3; // zmienna w której definiuje o ile ma się obracac poziom kostki(o 60 stopni)
             let presentFloorIndex = 1;
@@ -77,7 +76,7 @@ export default class Main {
             })
             if (e.keyCode == 68 || e.keyCode == 39) {
 
-                // this.presentHexFloor.rotation.y += angleToRotate;
+
                 let lastMesh = this.presentHexFloor.pop();
                 this.presentHexFloor.unshift(lastMesh)
 
@@ -89,7 +88,7 @@ export default class Main {
                         oneElement.lookAt(new Vector3(0, 55 * presentFloorIndex, 0))
                     }
                 }
-                // this.cube.cube[presentFloorIndex].rotation.y += angleToRotate
+                this.game.checkIfDone(this.cubeTable)
                 console.log(this.cubeTable[presentFloorIndex])
 
             } else if (e.keyCode == 65 || e.keyCode == 37) {
@@ -104,10 +103,9 @@ export default class Main {
                         oneElement.lookAt(new Vector3(0, 55 * presentFloorIndex, 0))
                     }
                 }
-                // this.cube.cube[presentFloorIndex].rotation.y -= angleToRotate
+                this.game.checkIfDone(this.cubeTable)
                 console.log(this.cubeTable[presentFloorIndex])
             } else if (e.keyCode == 87 || e.keyCode == 38) {
-
                 if (this.cubeTable[presentFloorIndex + 1] != undefined) {
                     this.presentHexFloor = this.cubeTable[presentFloorIndex + 1];
                 }

@@ -3,7 +3,7 @@ import Hex3D from "./Hex";
 export default class Cube {
     constructor(scene, missElement, table) {
         this.scene = scene;
-        this.colors = [0xff0000, 0x00ff00, 0x00ff00, 0x0000ff, 0xffa500, 0x40e0d0, 0xf6546a, 0xff0000, 0x00ff00, 0x0000ff, 0xffa500, 0x40e0d0, 0xf6546a, 0xff0000, 0x0000ff, 0xffa500, 0x40e0d0, 0xf6546a]
+        this.colors = [0xff0000, 0x00ff00, 0x0000ff, 0xffa500, 0x40e0d0, 0xd624fa, 0xff0000, 0x00ff00, 0x0000ff, 0xffa500, 0x40e0d0, 0xd624fa, 0xff0000, 0x00ff00, 0x0000ff, 0xffa500, 0x40e0d0, 0xd624fa]
         this.missElement = missElement;
         this.cube = []
         for (let i = 0; i < 3; i++) {
@@ -23,7 +23,7 @@ export default class Cube {
 
             }
         }
-        // console.log('sssssssssss')
+
 
     }
     makeColorsTable() {
@@ -32,7 +32,6 @@ export default class Cube {
         for (let i = 0; i < 6; i++) {
 
             let randomNumber = Math.floor(Math.random() * (this.colors.length - 1))
-            // console.log(randomNumber)
             table.push(this.colors[randomNumber])
             this.colors.splice(randomNumber, 1)
         }
