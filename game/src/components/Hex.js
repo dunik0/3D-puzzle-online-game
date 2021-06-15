@@ -15,7 +15,8 @@ export default class Hex3D extends Object3D {
         // prostopadłościan - jedna ściana hex-a
         this.allElements = []
         for (let i = 0; i < 6; i++) {
-            const material = new MeshPhongMaterial({ color: this.colorTable[i], flatShading: true, map: this.texture1, shininess: 100 })
+
+            const material = new MeshPhongMaterial({ color: this.colorTable[i], flatShading: true, map: this.texture2, shininess: 100 })
             // materials.push(new MeshPhongMaterial({ color: this.colorTable[i], flatShading: true, map: this.texture2, shininess: 100 }))
 
             const wall = new Mesh(geometry, material);
