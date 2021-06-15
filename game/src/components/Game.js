@@ -11,7 +11,7 @@ export default class Game {
                     if (el.backgroundColor == elements[x][index].backgroundColor) {
                         countElements++
                     }
-                } else {
+                } else if (x == 2) {
                     countElements++
                 }
             }
